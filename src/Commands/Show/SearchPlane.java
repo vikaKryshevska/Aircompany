@@ -12,7 +12,7 @@ public class SearchPlane implements MenuItems {
     public  void execute(){
         Scanner input = new Scanner(System.in);
 
-        System.out.println("1 -SearchByCity 2-SearchByDate 3 -SearchByFuelConsumption ");
+        System.out.println("Пошук за \n 1 - містом 2 - датою 3 - споживанням пального ");
 
         switch (input.nextInt()){
             case 1:

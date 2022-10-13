@@ -11,7 +11,7 @@ public class Display implements MenuItems {
     public  void execute(){
         Scanner input = new Scanner(System.in);
 
-        System.out.println("1 -ShowAllPlanes 2-ShowSorted 3 -ShowCapacity ");
+        System.out.println("Показати \n 1 - всі літаки 2 - відсортовані 3 - місткість");
 
         switch (input.nextInt()){
             case 1:
