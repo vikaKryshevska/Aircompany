@@ -8,9 +8,13 @@ public class Main {
         Menu menu = new Menu();
 
         while (true){
-            System.out.print("Команди: ");
-            menu.getAvailableCommands();
-            String command = input.next();
+            System.out.println("Бажаєте вивести усі команди - введіть 0, інакше номер команди яку хочете виконати");
+            Integer command = input.nextInt();
+            if (command == 0) {
+                System.out.println("Команди: ");
+                menu.getAvailableCommands();
+                command = input.nextInt();
+            }
             menu.execute(command);
         }
     }

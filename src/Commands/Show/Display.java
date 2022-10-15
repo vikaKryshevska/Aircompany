@@ -1,12 +1,10 @@
 package Commands.Show;
-import Commands.Show.All.ShowAllPlanes;
-import Commands.Show.All.ShowCapacity;
-import Commands.Show.All.ShowSorted;
+import Commands.Show.All.*;
 import StartCommands.MenuItems;
 
 import java.util.Scanner;
 
-public class Display implements MenuItems {
+public class Display extends ShowSorted implements MenuItems {
     @Override
     public  void execute(){
         Scanner input = new Scanner(System.in);

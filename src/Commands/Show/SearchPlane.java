@@ -7,7 +7,7 @@ import StartCommands.MenuItems;
 
 import java.util.Scanner;
 
-public class SearchPlane implements MenuItems {
+public class SearchPlane extends SearchByDate implements MenuItems {
     @Override
     public  void execute(){
         Scanner input = new Scanner(System.in);
