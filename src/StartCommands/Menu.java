@@ -39,7 +39,7 @@ public class Menu  {
     {
         int i=0;
         for (int key: Items.keySet()){
-            System.out.println(key + commands[i]+"\t");
+            System.out.println(key + commands[i]);
             i++;
         }
 
