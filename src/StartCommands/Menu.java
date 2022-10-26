@@ -10,7 +10,7 @@ import java.util.Map;
 public class Menu  {
 
     private final Map<Integer, MenuItems> Items;
-    private String[] commands = new String[7];
+    private final String[]  commands = new String[7];
 
     public Menu(){
         Items = new LinkedHashMap<>();
