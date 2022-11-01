@@ -1,5 +1,8 @@
 package Commands.Show.All;
 
+import Planes.Aircompany;
+import Planes.Plane;
+
 import java.util.Scanner;
 
 public class ShowAllPlanes {
@@ -7,7 +10,8 @@ public class ShowAllPlanes {
         System.out.println("Бажаєте вивести всі доступні літаки - 1");
         Scanner input = new Scanner(System.in);
         if (input.nextInt() == 1){
-            System.out.println("Всі доступні літаки...");
+            for(Plane pln : Aircompany.getPlanes() )
+                System.out.println(pln);
         }
         else
             System.out.println("Всі літаки...");
