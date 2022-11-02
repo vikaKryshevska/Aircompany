@@ -2,24 +2,24 @@ package Planes;
 
 import java.util.Scanner;
 
-public class Airfreighter extends Plane{
+public class AirFreighter extends Plane{
 
     private int capacity;
     private String date;
     private int regularity;
     private  String cities;
 
-    public Airfreighter () {
+    public AirFreighter () {
         Plane();
         Scanner Input = new Scanner(System.in);
         System.out.println(" setCapacity = ");
         setCapacity(Input.nextInt());
         System.out.println(" setDate = ");
-        setDate(Input.nextLine());
+        setDate(Input.next());
         System.out.println(" setRegularity = ");
         setRegularity(Input.nextInt());
         System.out.println(" setCities = ");
-        setCities(Input.nextLine());
+        setCities(Input.next());
     }
 
     public void setCapacity (int capacity) {
@@ -38,12 +38,29 @@ public class Airfreighter extends Plane{
         this.cities = cities;
     }
 
+    public int getCapacity () {
+        return capacity;
+    }
+
+    public String getDate () {
+        return date;
+    }
+
+    public int getRegularity () {
+        return regularity;
+    }
+
+    public String getCities () {
+        return cities;
+    }
+
     public int Capacity(){
         return capacity;
     }
     @Override
     public String toString() {
-        return super.toString()+ " capacity - " + capacity + " Date - " + date + " regularity - " + regularity + " cities - " + cities;
+        return "\nAirFreighter\n" + super.toString()+ "\ncapacity - " + capacity +
+                "\nDate - " + date + "\tregularity - " + regularity + "\ncities - " + cities;
     }
 
 

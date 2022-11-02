@@ -21,6 +21,6 @@ public class MilitaryAircraft extends Plane {
     }
     @Override
     public String toString () {
-        return "MilitaryAircraft " + super.toString() + " aircrew" + aircrew;
+        return "\nMilitaryAircraft \n" + super.toString() + "\naircrew - " + aircrew;
     }
 }

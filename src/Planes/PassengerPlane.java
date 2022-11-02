@@ -18,14 +18,14 @@ public class PassengerPlane extends Plane{
         System.out.println(" setBusiness_class = ");
         setBusiness_class(Input.nextInt());
         System.out.println(" setEconomy_class = ");
+
         setEconomy_class(Input.nextInt());
         System.out.println(" setDate = ");
-        setDate(Input.nextLine());
-
+        setDate(Input.next());
         System.out.println(" setRegularity = ");
         setRegularity(Input.nextInt());
         System.out.println(" setCities = ");
-        setCities(Input.nextLine());
+        setCities(Input.next());
     }
 
     public void setFirst_class (int first_class) {
@@ -52,17 +52,28 @@ public class PassengerPlane extends Plane{
         this.cities = cities;
     }
 
+    public String getDate () {
+        return date;
+    }
+
+    public int getRegularity () {
+        return regularity;
+    }
+
+    public String getCities () {
+        return cities;
+    }
 
     public int Capacity (){
         return  first_class + business_class + economy_class;
     }
     @Override
     public String toString () {
-        return "PassengerPlane" + super.toString() +  " first_class - " + first_class +
-                ", business_class - " + business_class +
-                ", economy_class - " + economy_class +
-                ", date - " + date +
-                ", regularity - " + regularity +
-                ", cities - " + cities;
+        return "\nPassengerPlane\n" + super.toString() +  "\nfirst_class - " + first_class +
+                "\tbusiness_class - " + business_class +
+                "\teconomy_class - " + economy_class +
+                "\ndate - " + date +
+                "\tregularity - " + regularity +
+                "\ncities - " + cities;
     }
 }

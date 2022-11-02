@@ -14,7 +14,7 @@ public class AddPlane implements MenuItems {
 
         switch (input.nextInt()) {
             case 1 -> plane = new PassengerPlane();
-            case 2 -> plane = new Airfreighter();
+            case 2 -> plane = new AirFreighter();
             case 3 -> plane = new MilitaryAircraft();
             default -> System.out.println("Try again");
         }

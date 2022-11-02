@@ -1,6 +1,5 @@
 package Planes;
 
-import java.awt.im.InputContext;
 import java.util.Scanner;
 
 public abstract class Plane {
@@ -22,14 +21,17 @@ public abstract class Plane {
         System.out.println(" Max_speed = ");
         setMax_speed(Input.nextInt());
         System.out.println(" Available = ");
-        setAvailable(Input.hasNextBoolean());
-        System.out.println(" Message = ");
-        setMessage(Input.nextLine());
+        setAvailable(Input.nextInt());
+        setMessage("");
     }
 
     public abstract int Capacity();
     public void setName (String name) {
         this.name = name;
+    }
+
+    public float getFuel_consumption () {
+        return fuel_consumption;
     }
 
     public void setFuel_consumption (float fuel_consumption) {
@@ -44,19 +46,30 @@ public abstract class Plane {
         this.max_speed = max_speed;
     }
 
-    public void setAvailable (boolean available) {
-        this.available = available;
+    public void setAvailable (int available) {
+        this.available = available == 0 ?  false : true;
     }
 
     public void setMessage (String message) {
         this.message = message;
     }
 
+    public int getFlight_range () {
+        return flight_range;
+    }
+    public boolean isAvailable () {
+        return available;
+    }
+
+    public String Available () {
+        return available == true ?  "Is available" : "Si not available";
+    }
+
     @Override
     public String toString () {
 
-        return "name " + name + "fuel_consumption " + fuel_consumption +
-         "flight_range " + flight_range + "max_speed " + max_speed + "available " + available + message;
+        return "name - " + name + "\tfuel_consumption - " + fuel_consumption +
+         "\nflight_range - " + flight_range + "\tmax_speed - " + max_speed + "available - " + Available() +"\nmessage - " + message;
     }
 
 
