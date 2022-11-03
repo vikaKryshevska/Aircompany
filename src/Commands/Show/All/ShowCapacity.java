@@ -19,13 +19,13 @@ public class ShowCapacity {
                 listPP.add(pln);
         }
 
-        System.out.println("Місткість пасажирських літаків\n");
+        System.out.println("\nМісткість пасажирських літаків");
         for(Plane pln : listPP)
             capacity+=pln.Capacity();
         System.out.println(capacity);
 
         capacity=0;
-        System.out.println("Вантажопідйомність вантажних літаків\n");
+        System.out.println("\nВантажопідйомність вантажних літаків");
         for(AirFreighter pln : listAF)
             capacity+=pln.Capacity();
         System.out.println(capacity);

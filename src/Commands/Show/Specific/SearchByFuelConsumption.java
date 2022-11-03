@@ -14,9 +14,13 @@ public class SearchByFuelConsumption {
         System.out.println("Кінець діапазону ");
         int end = input.nextInt();
         System.out.println("Підходящі літаки: ");
+        boolean i = false;
         for(Plane pln : Aircompany.getPlanes())
-            if(pln.getFuel_consumption()>start && pln.getFuel_consumption()<end)
+            if(pln.getFuel_consumption()>start && pln.getFuel_consumption()<end) {
                 System.out.println(pln);
-
+                i=true;
+            }
+        if(i)
+            System.out.println("Відсутні");
     }
 }

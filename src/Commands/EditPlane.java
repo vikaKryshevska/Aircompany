@@ -5,18 +5,21 @@ import StartCommands.MenuItems;
 
 import java.util.Scanner;
 
+import static Planes.Aircompany.*;
+
 public class EditPlane implements MenuItems {
     @Override
     public  void execute(){
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Номер літака в якого бажаєте змінити доступність");
+        System.out.println("Введіть назву або номер літака, в якого бажаєте змінити доступність");
 
-        int changeItem = input.nextInt();
-        for (int j = 0; j < Aircompany.getPlanes().size(); j++)
-            if(j == changeItem)
-                Aircompany.ChangeAvailability(j);
-
+        String Item = input.next();
+        Boolean flag = Character.isDigit(Item.charAt(0));
+        if(flag)
+            ChangeAvailabilityIndex(Integer.parseInt(Item)-1);
+        else
+            ChangeAvailabilityName(Item);
 
         System.out.println("Змінено");
     }

@@ -13,7 +13,7 @@ public final class Aircompany {
         return planes;
     }
 
-    public static void AddMessage (int index){
+    public static void AddMessageIndex (int index){
 
         if(planes.get(index)!=null){
             System.out.println("Введіть повідомлення");
@@ -21,10 +21,22 @@ public final class Aircompany {
             planes.get(index).setMessage(input.nextLine());
         }
         else
-            System.out.println("Не можливо знайти літак...");
+            System.out.println("Не можливо знайти літак");
     }
 
-    public static void ChangeAvailability (int index){
+    public static void AddMessageName (String name){
+
+        for(Plane pln : planes)
+            if(pln.getName().equals(name)){
+                 System.out.println("Введіть повідомлення");
+                 Scanner input = new Scanner(System.in);
+                 pln.setMessage(input.nextLine());
+                 return;
+            }
+        System.out.println("Не можливо знайти літак");
+    }
+
+    public static void ChangeAvailabilityIndex (int index){
 
         if(planes.get(index)!=null){
             int i =  !planes.get(index).isAvailable() ? 1:0;
@@ -32,6 +44,17 @@ public final class Aircompany {
         }
         else
             System.out.println("Немає такого літака");
+    }
+
+    public static void ChangeAvailabilityName (String name){
+
+        for(Plane pln : planes)
+            if(pln.getName().equals(name)){
+                int i =  !pln.isAvailable() ? 1:0;
+                pln.setAvailable(i);
+                return;
+            }
+        System.out.println("Не можливо знайти літак");
     }
 
     public static void Sort (){

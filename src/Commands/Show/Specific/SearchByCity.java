@@ -23,16 +23,27 @@ public class SearchByCity {
             else if (pln instanceof AirFreighter)
                 listAF.add((AirFreighter) pln);
         }
+        boolean i = true;
         System.out.println("\nПасажирські літаки");
         for(PassengerPlane pln : listPP) {
             if(pln.getCities().contains(city))
+            {
                 System.out.println(pln);
+                i=false;
+            }
         }
+        if(i)
+            System.out.println("Відсутні");
+        i = true;
         System.out.println("\nВантажні літаки");
         for(AirFreighter pln : listAF) {
             if(pln.getCities().contains(city))
+            {
+                i=false;
                 System.out.println(pln);
+            }
         }
-
+        if(i)
+            System.out.println("Відсутні");
     }
 }

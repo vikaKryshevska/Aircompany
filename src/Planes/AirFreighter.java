@@ -12,7 +12,7 @@ public class AirFreighter extends Plane{
     public AirFreighter () {
         Plane();
         Scanner Input = new Scanner(System.in);
-        System.out.print(" Місткість - ");
+        System.out.print(" Вантажопідйомність - ");
         setCapacity(Input.nextInt());
         System.out.print(" Дата -  ");
         setDate(Input.next());

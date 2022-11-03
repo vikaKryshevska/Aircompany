@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public abstract class Plane {
     private String name;
-    private float fuel_consumption;
+    private int fuel_consumption;
     private int flight_range;
     private int max_speed;
     private boolean available;
@@ -15,7 +15,7 @@ public abstract class Plane {
         System.out.print(" Назва - ");
         setName(Input.nextLine());
         System.out.print(" Споживання пального - ");
-        setFuel_consumption(Input.nextFloat());
+        setFuel_consumption(Input.nextInt());
         System.out.print(" Дальність польоту - ");
         setFlight_range(Input.nextInt());
         System.out.print(" Максимальна швидкість - ");
@@ -30,11 +30,11 @@ public abstract class Plane {
         this.name = name;
     }
 
-    public float getFuel_consumption () {
+    public int getFuel_consumption () {
         return fuel_consumption;
     }
 
-    public void setFuel_consumption (float fuel_consumption) {
+    public void setFuel_consumption (int fuel_consumption) {
         this.fuel_consumption = fuel_consumption;
     }
 
@@ -67,7 +67,7 @@ public abstract class Plane {
 
     public String getMessage () {
         if (!message.equals(""))
-            return "Літак має повідомлення : \n" + message;
+            return "\nЛітак має повідомлення : " + message;
         else
             return "";
     }
