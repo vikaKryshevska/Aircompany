@@ -11,14 +11,13 @@ public class DeletePlane implements MenuItems {
     public  void execute(){
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Тип літака, який хочете");
+        System.out.println("Введіть назву або номер літака, який хоче видалити");
 
         String deleteItem = input.next();
         Boolean flag = Character.isDigit(deleteItem.charAt(0));
         if(flag)
-            removePlane(Integer.parseInt(deleteItem));
+            removePlane(Integer.parseInt(deleteItem)-1);
         else
             removePlaneByName(deleteItem);
-        System.out.println("Delete plane");
     }
 }

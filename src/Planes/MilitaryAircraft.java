@@ -8,7 +8,7 @@ public class MilitaryAircraft extends Plane {
     public MilitaryAircraft () {
         Plane();
         Scanner Input = new Scanner(System.in);
-        System.out.println(" aircrew = ");
+        System.out.print(" Команда - ");
         setAircrew(Input.nextInt());
     }
 
@@ -21,6 +21,6 @@ public class MilitaryAircraft extends Plane {
     }
     @Override
     public String toString () {
-        return "\nMilitaryAircraft \n" + super.toString() + "\naircrew - " + aircrew;
+        return "\nЛітак воєнного призначення" + super.toString() + "\nкоманда - " + aircrew;
     }
 }

@@ -16,12 +16,22 @@ public final class Aircompany {
     public static void AddMessage (int index){
 
         if(planes.get(index)!=null){
-            System.out.println("Input message");
+            System.out.println("Введіть повідомлення");
             Scanner input = new Scanner(System.in);
-            planes.get(index).setMessage(input.next());
+            planes.get(index).setMessage(input.nextLine());
         }
         else
-            System.out.println("Can't be added");
+            System.out.println("Не можливо знайти літак...");
+    }
+
+    public static void ChangeAvailability (int index){
+
+        if(planes.get(index)!=null){
+            int i =  !planes.get(index).isAvailable() ? 1:0;
+            planes.get(index).setAvailable(i);
+        }
+        else
+            System.out.println("Немає такого літака");
     }
 
     public static void Sort (){
@@ -42,10 +52,9 @@ public final class Aircompany {
         Plane item = planes.get(index);
         if(item!=null){
             planes.remove(index);
-            System.out.println("Was deleted");
-        }
+            System.out.println("Літак було видалено");        }
         else
-            System.out.println("Can't be deleted");
+            System.out.println("Літак не можливо видалити");
     }
     public static void removePlaneByName (String name){
 
@@ -53,9 +62,10 @@ public final class Aircompany {
             if(pln.getName().equals(name))
             {
                 planes.remove(pln);
+                System.out.println("Літак було видалено");
                 return;
             }
-
+        System.out.println("Літак не можливо видалити");
 
     }
 

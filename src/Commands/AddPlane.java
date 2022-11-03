@@ -20,7 +20,7 @@ public class AddPlane implements MenuItems {
         }
 
         Aircompany.getPlanes().add(plane);
-        System.out.println("Add Plane");
+        System.out.println("Літак додано");
 
     }
 }

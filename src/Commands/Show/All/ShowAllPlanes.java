@@ -15,7 +15,7 @@ public class ShowAllPlanes {
                      System.out.println(pln);
         }
         else{
-            System.out.println("всі літаки ");
+            System.out.println("Усі літаки ");
             for(Plane pln : Aircompany.getPlanes() )
                 System.out.println(pln);
         }

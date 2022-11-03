@@ -12,15 +12,15 @@ public abstract class Plane {
 
     public void Plane () {//конструктор
         Scanner Input = new Scanner(System.in);
-        System.out.println(" name = ");
+        System.out.print(" Назва - ");
         setName(Input.nextLine());
-        System.out.println(" Fuel_consumption = ");
+        System.out.print(" Споживання пального - ");
         setFuel_consumption(Input.nextFloat());
-        System.out.println(" Flight_range = ");
+        System.out.print(" Дальність польоту - ");
         setFlight_range(Input.nextInt());
-        System.out.println(" Max_speed = ");
+        System.out.print(" Максимальна швидкість - ");
         setMax_speed(Input.nextInt());
-        System.out.println(" Available = ");
+        System.out.print(" Доступність - ");
         setAvailable(Input.nextInt());
         setMessage("");
     }
@@ -62,14 +62,21 @@ public abstract class Plane {
     }
 
     public String Available () {
-        return available == true ?  "Is available" : "Si not available";
+        return available == true ?  "є доступним" : "не є доступним";
+    }
+
+    public String getMessage () {
+        if (!message.equals(""))
+            return "Літак має повідомлення : \n" + message;
+        else
+            return "";
     }
 
     @Override
     public String toString () {
 
-        return "name - " + name + "\tfuel_consumption - " + fuel_consumption +
-         "\nflight_range - " + flight_range + "\tmax_speed - " + max_speed + "available - " + Available() +"\nmessage - " + message;
+        return "\nНазва - " + name + "\tсоживання пального - " + fuel_consumption +
+         "\nдальність польоту - " + flight_range + "\tмаксимальна швидкість - " + max_speed + "\nлітак " + Available() +getMessage();
     }
 
 

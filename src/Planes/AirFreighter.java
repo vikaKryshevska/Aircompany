@@ -12,14 +12,15 @@ public class AirFreighter extends Plane{
     public AirFreighter () {
         Plane();
         Scanner Input = new Scanner(System.in);
-        System.out.println(" setCapacity = ");
+        System.out.print(" Місткість - ");
         setCapacity(Input.nextInt());
-        System.out.println(" setDate = ");
+        System.out.print(" Дата -  ");
         setDate(Input.next());
-        System.out.println(" setRegularity = ");
+        System.out.print(" Регулярність - ");
         setRegularity(Input.nextInt());
-        System.out.println(" setCities = ");
-        setCities(Input.next());
+        System.out.print(" Міста -  ");
+        Scanner sc = new Scanner(System.in);
+        setCities(sc.nextLine());
     }
 
     public void setCapacity (int capacity) {
@@ -54,13 +55,15 @@ public class AirFreighter extends Plane{
         return cities;
     }
 
-    public int Capacity(){
-        return capacity;
+    @Override
+    public int Capacity () {
+        return getCapacity();
     }
+
     @Override
     public String toString() {
-        return "\nAirFreighter\n" + super.toString()+ "\ncapacity - " + capacity +
-                "\nDate - " + date + "\tregularity - " + regularity + "\ncities - " + cities;
+        return "\nВантажний літак" + super.toString()+ "\nвантажопідйомність - " + capacity +
+                "\nдата - " + date + "\nрегулярність польотів - " + regularity + "\nміста - " + cities;
     }
 
 

@@ -6,7 +6,7 @@ public class Exit implements MenuItems {
     @Override
     public  void execute(){
 
-        System.out.println("Exit");
+        System.out.println("Вихід з програми...");
         System.exit(0);
     }
 }

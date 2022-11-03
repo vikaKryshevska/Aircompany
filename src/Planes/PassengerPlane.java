@@ -13,19 +13,20 @@ public class PassengerPlane extends Plane{
     public PassengerPlane () {
         Plane();
         Scanner Input = new Scanner(System.in);
-        System.out.println(" setFirst_class = ");
+        System.out.print(" Місць у першому класі -  ");
         setFirst_class(Input.nextInt());
-        System.out.println(" setBusiness_class = ");
+        System.out.print(" Бізнес клас - ");
         setBusiness_class(Input.nextInt());
-        System.out.println(" setEconomy_class = ");
+        System.out.print(" Економ клас - ");
 
         setEconomy_class(Input.nextInt());
-        System.out.println(" setDate = ");
+        System.out.print(" Дата -  ");
         setDate(Input.next());
-        System.out.println(" setRegularity = ");
+        System.out.print(" Регулярність - ");
         setRegularity(Input.nextInt());
-        System.out.println(" setCities = ");
-        setCities(Input.next());
+        System.out.print(" Міста -  ");
+        Scanner sc = new Scanner(System.in);
+        setCities(sc.nextLine());
     }
 
     public void setFirst_class (int first_class) {
@@ -69,11 +70,11 @@ public class PassengerPlane extends Plane{
     }
     @Override
     public String toString () {
-        return "\nPassengerPlane\n" + super.toString() +  "\nfirst_class - " + first_class +
-                "\tbusiness_class - " + business_class +
-                "\teconomy_class - " + economy_class +
-                "\ndate - " + date +
-                "\tregularity - " + regularity +
-                "\ncities - " + cities;
+        return "\nПасажирський літак" + super.toString() +  "\nперший клас - " + first_class +
+                "\tбізнес клас - " + business_class +
+                "\tеконом клас - " + economy_class +
+                "\nдата - " + date +
+                "\nрегулярність - " + regularity +
+                "\nміста - " + cities;
     }
 }
