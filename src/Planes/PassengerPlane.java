@@ -11,7 +11,10 @@ public class PassengerPlane extends Plane{
     private String cities;
 
     public PassengerPlane () {
-        Plane();
+    }
+
+    public void PassengerPlaneCreate () {
+        PlaneCreate();
         Scanner Input = new Scanner(System.in);
         System.out.print(" Місць у першому класі -  ");
         setFirst_class(Input.nextInt());

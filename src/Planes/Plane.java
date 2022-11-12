@@ -10,7 +10,10 @@ public abstract class Plane {
     private boolean available;
     private String message;
 
-    public void Plane () {//конструктор
+    public Plane () {
+    }
+
+    public void PlaneCreate () {//конструктор
         Scanner Input = new Scanner(System.in);
         System.out.print(" Назва - ");
         setName(Input.nextLine());
@@ -51,6 +54,8 @@ public abstract class Plane {
     }
 
     public void setMessage (String message) {
+        if(message == null)
+            message="";
         this.message = message;
     }
 
@@ -75,7 +80,7 @@ public abstract class Plane {
     @Override
     public String toString () {
 
-        return "\nНазва - " + name + "\tсоживання пального - " + fuel_consumption +
+        return "\nНазва - " + name + "\tспоживання пального - " + fuel_consumption +
          "\nдальність польоту - " + flight_range + "\tмаксимальна швидкість - " + max_speed + "\nлітак " + Available() +getMessage();
     }
 

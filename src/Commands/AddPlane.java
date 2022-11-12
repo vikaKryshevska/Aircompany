@@ -13,9 +13,9 @@ public class AddPlane implements MenuItems {
         System.out.println("Тип літака, який хочете додати \n 1 - пасажирський  2 - вантажний  3 - військовий");
 
         switch (input.nextInt()) {
-            case 1 -> plane = new PassengerPlane();
-            case 2 -> plane = new AirFreighter();
-            case 3 -> plane = new MilitaryAircraft();
+            case 1 -> ((PassengerPlane) plane).PassengerPlaneCreate();
+            case 2 -> ((AirFreighter) plane).AirFreighterCreate();
+            case 3 -> ((MilitaryAircraft)plane).MilitaryAircraftCreate();
             default -> System.out.println("Try again");
         }
 

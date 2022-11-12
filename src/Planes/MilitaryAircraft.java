@@ -5,8 +5,12 @@ import java.util.Scanner;
 public class MilitaryAircraft extends Plane {
 
     private int aircrew;
+
     public MilitaryAircraft () {
-        Plane();
+    }
+
+    public void MilitaryAircraftCreate () {
+        PlaneCreate();
         Scanner Input = new Scanner(System.in);
         System.out.print(" Команда - ");
         setAircrew(Input.nextInt());

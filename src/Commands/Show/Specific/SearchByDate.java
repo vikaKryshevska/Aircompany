@@ -50,7 +50,7 @@ public class SearchByDate {
         else
             planeDate = StringToDate(((AirFreighter)pln).getDate());
 
-        while (planeDate.before(maxDate) && planeDate.before(DateAdd(date,1))) {
+        while (!planeDate.after(maxDate) && !planeDate.after(date)) {
             if (planeDate.equals(date)) {
                 System.out.println(pln);
                 i++;

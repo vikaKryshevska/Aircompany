@@ -1,8 +1,6 @@
 package StartCommands;
 import Commands.*;
-import Commands.Show.Display;
-import Commands.Show.SearchPlane;
-
+import Commands.Show.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

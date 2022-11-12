@@ -10,7 +10,10 @@ public class AirFreighter extends Plane{
     private  String cities;
 
     public AirFreighter () {
-        Plane();
+    }
+
+    public void AirFreighterCreate () {
+        PlaneCreate();
         Scanner Input = new Scanner(System.in);
         System.out.print(" Вантажопідйомність - ");
         setCapacity(Input.nextInt());
