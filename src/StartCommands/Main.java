@@ -11,6 +11,7 @@ public class Main {
         Menu menu = new Menu();
 
         Connection2SQL.GetDataFromSQL();
+
         while (true){
             System.out.println("Бажаєте вивести усі команди - введіть 0, інакше номер команди яку хочете виконати");
             Integer command = input.nextInt();
@@ -22,4 +23,5 @@ public class Main {
             menu.execute(command);
         }
     }
+
 }

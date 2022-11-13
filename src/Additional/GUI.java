@@ -1,40 +1,33 @@
 package Additional;
-import javax.swing.*;
-import java.awt.event.*;
-import StartCommands.*;
 
-public class GUI {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-    public static void GUI(String[] args) {
+import java.io.IOException;
 
-        SimpleFrame frame = new SimpleFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
+public class GUI extends Application {
 
-    static class SimpleFrame extends JFrame
-    {
-        public static final int DEFAULT_WIDTH = 300;
-        public static final int DEFAULT_HEIGHT = 200;
-
-        public SimpleFrame()
-        {
-            setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT); // задаємо розміри фрейму
-            JPanel panel = new JPanel();            // створюємо панель
-            this.add(panel);                        // додаємо панель у фрейм
-
-            JButton button1 = new JButton("Показати літаки");   //створюємо кнопку 1
-            panel.add(button1);             // додаємо кнопку на панель
-            button1.addActionListener(e -> {
-                menu.execute(3);
-            });       // зв'язуємо обробника подій з кнопкою 1
-
-            JButton button2 = new JButton("Кнопка 2");   //створюємо кнопку 2
-            panel.add(button2);             // додаємо кнопку на панель
+    private static Stage stg;
+        @Override
+        public void start (Stage primaryStage) throws IOException {
+            stg = primaryStage;
+            primaryStage.setResizable(false);
+            Parent root = FXMLLoader.load(GUI.class.getResource("GUI.fxml"));
+            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.setTitle("Hello!");
+            primaryStage.show();
 
         }
+        public void changeScene (String fxml) throws IOException{
+            Parent pane = FXMLLoader.load(getClass().getResource("menu.fxml"));
+            stg.getScene().setRoot(pane);
+        }
+
+        public static void main (String[] args) {
+            launch();
+        }
     }
-
-
-}
 

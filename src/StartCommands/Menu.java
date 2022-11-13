@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Menu  {
 
-    private final Map<Integer, MenuItems> Items;
+    private static Map<Integer, MenuItems> Items;
     private final String[]  commands = new String[7];
 
     public Menu(){
@@ -28,7 +28,7 @@ public class Menu  {
         commands[6] = " - Вийти";
     }
 
-    public void execute(Integer command)
+    public static void execute (Integer command)
     {
         Items.getOrDefault(command, ()->System.out.println("Try again")).execute();
     }
