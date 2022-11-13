@@ -27,14 +27,12 @@ public class LogIn {
     @FXML
     public void userLogIn () throws IOException {
 
-         GUI m = new GUI();
+        GUI m = new GUI();
 
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
                 if(username.getText().toString().equals("1")&& password.getText().toString().equals("1111")){
-                    wrongLogIn.setVisible(true);
-                    wrongLogIn.setText("Success!");
                     try {
                         m.changeScene("menu.fxml");
                     } catch (IOException event) {
@@ -43,12 +41,10 @@ public class LogIn {
                 }
 
                 else if(username.getText().isEmpty()&& password.getText().isEmpty()){
-                    wrongLogIn.setVisible(true);
                     wrongLogIn.setText("Enter data.");
                 }
 
                 else{
-                    wrongLogIn.setVisible(true);
                     wrongLogIn.setText("Wrong username or password!");
                 }
             }

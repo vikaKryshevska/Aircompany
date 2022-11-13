@@ -7,44 +7,44 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url( C:\Users\User\Videos\1.jpg);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url( C:\Users\User\Videos\1.jpg);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Additional.Menu" >
    <children>
       <ImageView fitHeight="400.0" fitWidth="753.0" opacity="0.24" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../111.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="77.0" layoutY="85.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="142.0" text="Display Planes" textFill="#2240ab">
+      <Button  fx:id="Display" layoutX="77.0" layoutY="85.0" mnemonicParsing="false"  onAction="#Display"   prefHeight="38.0" prefWidth="142.0" text="Display Planes" textFill="#2240ab">
          <font>
             <Font name="Candara" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="392.0" layoutY="85.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="142.0" text="Find Planes" textFill="#2240ab">
+      <Button fx:id="Find" layoutX="392.0" layoutY="85.0" mnemonicParsing="false" onAction="#Find" prefHeight="38.0" prefWidth="142.0" text="Find Planes" textFill="#2240ab">
          <font>
             <Font name="Candara" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="77.0" layoutY="181.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="142.0" text="Add Plane" textFill="#2240ab">
+      <Button fx:id="Add" layoutX="77.0" layoutY="181.0" mnemonicParsing="false" onAction="#Add" prefHeight="38.0" prefWidth="142.0" text="Add Plane" textFill="#2240ab">
          <font>
             <Font name="Candara" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="392.0" layoutY="181.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="142.0" text="Delete Plane" textFill="#2240ab">
+      <Button fx:id="Delete" layoutX="392.0" layoutY="181.0" mnemonicParsing="false" onAction="#Delete" prefHeight="38.0" prefWidth="142.0" text="Delete Plane" textFill="#2240ab">
          <font>
             <Font name="Candara" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="77.0" layoutY="266.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="142.0" text="Edit Plane" textFill="#2240ab">
+      <Button fx:id="Edit" layoutX="77.0" layoutY="266.0" mnemonicParsing="false" onAction="#Edit" prefHeight="38.0" prefWidth="142.0" text="Edit Plane" textFill="#2240ab">
          <font>
             <Font name="Candara" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="392.0" layoutY="262.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="142.0" text="Add Message" textFill="#2240ab">
+      <Button fx:id="AddM" layoutX="392.0" layoutY="262.0" mnemonicParsing="false" onAction="#AddM" prefHeight="38.0" prefWidth="142.0" text="Add Message" textFill="#2240ab">
          <font>
             <Font name="Candara" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="245.0" layoutY="318.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="110.0" text="Button" textFill="#2240ab">
+      <Button   fx:id="logout" layoutX="245.0" layoutY="318.0" mnemonicParsing="false" onAction="#userLogOut"  prefHeight="47.0" prefWidth="110.0" text="Log Out" textFill="#2240ab" >
          <font>
             <Font name="Candara" size="16.0" />
          </font>

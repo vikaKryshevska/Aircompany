@@ -72,7 +72,7 @@ public abstract class Plane {
 
     public String getMessage () {
         if (!message.equals(""))
-            return "\nЛітак має повідомлення : " + message;
+            return "\tЛітак має повідомлення : " + message;
         else
             return "";
     }

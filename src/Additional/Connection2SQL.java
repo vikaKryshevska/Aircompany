@@ -10,7 +10,8 @@ public class Connection2SQL {
         String password = "1111";
         Connection connection = null;
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName(
+                    "com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, password);
             System.out.println("Good connection");
         } catch (SQLException | ClassNotFoundException e) {

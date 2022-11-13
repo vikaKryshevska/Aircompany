@@ -38,9 +38,9 @@
                 <TextField fx:id="username" layoutX="-47.0" layoutY="125.0" prefHeight="19.0" prefWidth="164.0" promptText="username" />
                 <PasswordField fx:id="password" layoutX="-45.0" layoutY="266.0" prefHeight="26.0" prefWidth="167.0" promptText="password" />
                 <Button fx:id="button" layoutX="-57.0" layoutY="330.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="37.0" prefWidth="190.0" style="-fx-background-color: #8BD5FF;" text="Log In" />
-                <Label fx:id="label" layoutX="-76.0" layoutY="168.0" prefHeight="42.0" prefWidth="211.0" textFill="#bf4000">
+                <Label fx:id="wrongLogIn" layoutX="-89.0" layoutY="168.0" prefHeight="42.0" prefWidth="282.0" textAlignment="JUSTIFY" textFill="#bf4000">
                     <font>
-                        <Font size="26.0" />
+                        <Font size="18.0" />
                     </font>
                 </Label>
             </children>
