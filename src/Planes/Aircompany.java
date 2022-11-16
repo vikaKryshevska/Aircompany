@@ -13,25 +13,21 @@ public final class Aircompany {
         return planes;
     }
 
-    public static void AddMessageIndex (int index){
+    public static void AddMessageIndex (int index, String message){
 
         if(planes.get(index)!=null){
-            System.out.println("Введіть повідомлення");
-            Scanner input = new Scanner(System.in);
-            planes.get(index).setMessage(input.nextLine());
+            planes.get(index).setMessage(message);
         }
         else
             System.out.println("Не можливо знайти літак");
     }
 
-    public static void AddMessageName (String name){
+    public static void AddMessageName (String name, String message){
 
         for(Plane pln : planes)
             if(pln.getName().equals(name)){
-                 System.out.println("Введіть повідомлення");
-                 Scanner input = new Scanner(System.in);
-                 pln.setMessage(input.nextLine());
-                 return;
+                pln.setMessage(message);
+                return;
             }
         System.out.println("Не можливо знайти літак");
     }

@@ -17,7 +17,7 @@ public class GUI extends Application {
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(GUI.class.getResource("GUI.fxml"));
         primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.setTitle("Hello!");
+        primaryStage.setTitle("Aircompany!");
         primaryStage.show();
 
     }
@@ -25,6 +25,8 @@ public class GUI extends Application {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
     }
+
+
 
     public static void main () {
         launch();

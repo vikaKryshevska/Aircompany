@@ -1,11 +1,11 @@
 package Commands;
 
-import Planes.Aircompany;
 import StartCommands.MenuItems;
 
 import java.util.Scanner;
 
-import static Planes.Aircompany.*;
+import static Planes.Aircompany.ChangeAvailabilityIndex;
+import static Planes.Aircompany.ChangeAvailabilityName;
 
 public class EditPlane implements MenuItems {
     @Override
@@ -23,4 +23,6 @@ public class EditPlane implements MenuItems {
 
         System.out.println("Змінено");
     }
+
+
 }
