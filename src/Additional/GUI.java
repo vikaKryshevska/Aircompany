@@ -11,6 +11,9 @@ import java.io.IOException;
 public class GUI extends Application {
 
     private static Stage stg;
+
+
+
     @Override
     public void start (Stage primaryStage) throws IOException {
         stg = primaryStage;
