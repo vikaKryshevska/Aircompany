@@ -1,6 +1,5 @@
 package Additional;
 
-import Planes.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -30,7 +29,11 @@ public class Edit {
                 if (selectedIdx != -1) {
                     String itemToRemove = LstView.getSelectionModel().getSelectedItem();
                     ChangeAvailabilityIndex(selectedIdx);
-                    Exit();
+                    try {
+                        Common.Back();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         };
@@ -39,24 +42,14 @@ public class Edit {
 
     }
 
-    public  void Exit(){
-
-        GUI m = new GUI();
-        try {
-            m.changeScene("menu.fxml");
-        } catch (IOException event) {
-            throw new RuntimeException(event);
-        }
-    }
-
-    public void Back () throws IOException {
-
+    public  void  Back() throws IOException {
         EventHandler<ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
-            public void handle (javafx.event.ActionEvent e) {
-              Exit();
+            public void handle(javafx.event.ActionEvent e) {
+                try {Common.Back();}
+                catch (IOException ex) {throw new RuntimeException(ex);}
             }
         };
-        // when button is pressed
+
         back.setOnAction(event);
     }
 
@@ -64,17 +57,7 @@ public class Edit {
     public void setLstView () {
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
-            {
-                LstView.getItems().clear();
-                for(Plane pln: Aircompany.getPlanes()) {
-                    if (pln instanceof PassengerPlane)
-                        LstView.getItems().add(String.valueOf(((PassengerPlane) pln)));
-                    else if (pln instanceof AirFreighter)
-                        LstView.getItems().add(String.valueOf(((AirFreighter) pln)));
-                    else
-                        LstView.getItems().add(String.valueOf(((MilitaryAircraft) pln)));
-                }
-            }
+            {Common.Show(LstView);}
         };
         Show.setOnAction(event);
     }

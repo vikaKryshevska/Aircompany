@@ -18,7 +18,7 @@ public class GUI extends Application {
     public void start (Stage primaryStage) throws IOException {
         stg = primaryStage;
         primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(GUI.class.getResource("GUI.fxml"));
+        Parent root = FXMLLoader.load(GUI.class.getResource("Resource/GUI.fxml"));
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.setTitle("Aircompany!");
         primaryStage.show();

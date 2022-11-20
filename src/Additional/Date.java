@@ -45,7 +45,7 @@ public class Date extends java.util.Date {
                             int i = 0;
                             if (pln instanceof PassengerPlane)
                                 planeDate = SearchByDate.StringToDate(((PassengerPlane) pln).getDate());
-                            else if (pln instanceof AirFreighter)
+                            else
                                 planeDate = SearchByDate.StringToDate(((AirFreighter) pln).getDate());
 
                             while (!planeDate.after(enteredDate)) {
@@ -53,13 +53,13 @@ public class Date extends java.util.Date {
                                     LstView.getItems().add(String.valueOf(((PassengerPlane) pln)));
                                 }
 
-                                if ( enteredDate.equals(planeDate) && (pln instanceof AirFreighter)) {
+                                else if ( enteredDate.equals(planeDate) && (pln instanceof AirFreighter)) {
                                     LstView.getItems().add(String.valueOf(((AirFreighter) pln)));
                                 }
 
                                 if (pln instanceof PassengerPlane)
                                     planeDate = DateAdd(planeDate, ((PassengerPlane) pln).getRegularity());
-                                else if (pln instanceof AirFreighter)
+                                else
                                     planeDate = DateAdd(planeDate, ((AirFreighter) pln).getRegularity());
 
                             }
@@ -76,25 +76,14 @@ public class Date extends java.util.Date {
 
 
 
-    public  void Exit(){
-
-        GUI m = new GUI();
-        try {
-            m.changeScene("menu.fxml");
-        } catch (IOException event) {
-            throw new RuntimeException(event);
-        }
-    }
-
-
     public  void  Back() throws IOException {
-        GUI m = new GUI();
         EventHandler<ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                Exit();
+                try {Common.Back();}
+                catch (IOException ex) {throw new RuntimeException(ex);}
             }
         };
-        // when button is pressed
+
         back.setOnAction(event);
     }
 }

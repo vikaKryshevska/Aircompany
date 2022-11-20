@@ -26,7 +26,6 @@ public class City {
 
     @FXML
     public void EnterMessage () throws IOException {
-        GUI m = new GUI();
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle (javafx.event.ActionEvent e) {
                 if (!city.getText().isEmpty()) {
@@ -46,25 +45,14 @@ public class City {
 
     }
 
-    public  void Exit(){
-
-        GUI m = new GUI();
-        try {
-            m.changeScene("menu.fxml");
-        } catch (IOException event) {
-            throw new RuntimeException(event);
-        }
-    }
-
-
     public  void  Back() throws IOException {
-        GUI m = new GUI();
         EventHandler<ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-              Exit();
+                try {Common.Back();}
+                catch (IOException ex) {throw new RuntimeException(ex);}
             }
         };
-        // when button is pressed
+
         back.setOnAction(event);
     }
 }

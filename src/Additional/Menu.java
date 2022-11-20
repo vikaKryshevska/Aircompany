@@ -32,7 +32,7 @@ public class Menu {
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
                 try {
-                     m.changeScene("GUI.fxml");
+                     m.changeScene("Resource/GUI.fxml");
                 } catch (IOException event) {
                     throw new RuntimeException(event);
                 }
@@ -51,7 +51,7 @@ public class Menu {
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
                 try {
-                    m.changeScene("display.fxml");
+                    m.changeScene("Resource/display.fxml");
                 } catch (IOException event) {
                     throw new RuntimeException(event);
                 }
@@ -67,7 +67,7 @@ public class Menu {
         GUI m = new GUI();
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {m.changeScene("add.fxml");}
+                try {m.changeScene("Resource/add.fxml");}
                 catch (IOException event) {throw new RuntimeException(event);}
             }
         };
@@ -79,7 +79,7 @@ public class Menu {
         GUI m = new GUI();
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {m.changeScene("delete.fxml");}
+                try {m.changeScene("Resource/delete.fxml");}
                 catch (IOException event) {throw new RuntimeException(event);}
             }
         };
@@ -91,7 +91,7 @@ public class Menu {
         GUI m = new GUI();
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {m.changeScene("edit.fxml");}
+                try {m.changeScene("Resource/edit.fxml");}
                 catch (IOException event) {throw new RuntimeException(event);}
             }
         };
@@ -104,7 +104,7 @@ public class Menu {
         GUI m = new GUI();
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {m.changeScene("addM.fxml");}
+                try {m.changeScene("Resource/addM.fxml");}
                 catch (IOException event) {throw new RuntimeException(event);}
             }
         };
@@ -116,7 +116,7 @@ public class Menu {
         GUI m = new GUI();
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {m.changeScene("find.fxml");}
+                try {m.changeScene("Resource/find.fxml");}
                 catch (IOException event) {throw new RuntimeException(event);}
             }
         };

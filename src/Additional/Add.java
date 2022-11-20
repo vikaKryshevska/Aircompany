@@ -12,55 +12,16 @@ import java.io.IOException;
 
 public class Add {
 
-    @FXML
-    private TextField name;
-    @FXML
-    private TextField  fuel;
-    @FXML
-    private TextField  range;
-    @FXML
-    private TextField  speed;
-    @FXML
-    private TextField  available;
-    @FXML
-    private TextField  message;
+    @FXML private TextField name, fuel, range, speed, available, message;
+    @FXML private TextField first, business, econom, datep, regularityp, citiesp;
+    @FXML private TextField capacity, datef, regularityf, citiesf;
+    @FXML private TextField aircrew;
 
-    @FXML
-    private TextField first;
-    @FXML
-    private TextField  business;
-    @FXML
-    private TextField econom;
-    @FXML
-    private TextField  datep;
-    @FXML
-    private TextField regularityp;
-    @FXML
-    private TextField  citiesp;
-
-    @FXML
-    private TextField capacity;
-    @FXML
-    private TextField datef;
-    @FXML
-    private TextField regularityf;
-    @FXML
-    private TextField citiesf;
-    @FXML
-    private TextField aircrew;
-
-    @FXML
-    private Button back = new Button();
-    @FXML
-    private Button airfreighter = new Button();
-    @FXML
-    private Button military = new Button();
-    @FXML
-    private Button passenger = new Button();
-
-
-    @FXML
-    private Label wrong_data;
+    @FXML private Button back = new Button();
+    @FXML private Button airfreighter = new Button();
+    @FXML private Button military = new Button();
+    @FXML private Button passenger = new Button();
+    @FXML private Label wrong_data;
 
 
 
@@ -78,8 +39,7 @@ public class Add {
                 }
                 else{
                     ((MilitaryAircraft)plane).setAircrew(Integer.parseInt(aircrew.getText()));
-                    wrong_data.setText("OK, plane created");
-                    Aircompany.getPlanes().add(plane);
+                    Add(plane);
                 }
 
             }
@@ -111,8 +71,7 @@ public class Add {
                     ((PassengerPlane)plane).setEconomy_class(Integer.parseInt(econom.getText()));
                     ((PassengerPlane)plane).setBusiness_class(Integer.parseInt(business.getText()));
 
-                    wrong_data.setText("OK, plane created");
-                    Aircompany.getPlanes().add(plane);
+                    Add(plane);
                 }
 
             }
@@ -137,8 +96,7 @@ public class Add {
                     ((AirFreighter)plane).setCities(citiesf.getText());
                     ((AirFreighter)plane).setCapacity(Integer.parseInt(capacity.getText()));
                     ((AirFreighter)plane).setDate(datef.getText());
-                    wrong_data.setText("OK, plane created");
-                    Aircompany.getPlanes().add(plane);
+                    Add(plane);
                 }
 
             }
@@ -147,6 +105,18 @@ public class Add {
         // when button is pressed
         airfreighter.setOnAction(event);
     }
+
+    private void Add(Plane pln)
+    {
+        wrong_data.setText("OK, plane created");
+        Aircompany.getPlanes().add(pln);
+        try {
+            Common.Back();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
     private void StandardField (Plane pln) {
         if(name.getText().isEmpty() || fuel.getText().isEmpty() || range.getText().isEmpty()
                 || speed.getText().isEmpty() || available.getText().isEmpty()){
@@ -166,19 +136,13 @@ public class Add {
 
 
     public  void  Back() throws IOException {
-        GUI m = new GUI();
         EventHandler<ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {
-                    m.changeScene("menu.fxml");
-                } catch (IOException event) {
-                    throw new RuntimeException(event);
-                }
-
+                try {Common.Back();}
+                catch (IOException ex) {throw new RuntimeException(ex);}
             }
         };
-        // when button is pressed
+
         back.setOnAction(event);
     }
-    //
 }

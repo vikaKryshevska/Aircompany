@@ -28,7 +28,7 @@ public class Find {
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
                 try {
-                    m.changeScene("date.fxml");
+                    m.changeScene("Resource/date.fxml");
                 } catch (IOException event) {
                     throw new RuntimeException(event);
                 }
@@ -45,7 +45,7 @@ public class Find {
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
                 try {
-                    m.changeScene("fuel.fxml");
+                    m.changeScene("Resource/fuel.fxml");
                 } catch (IOException event) {
                     throw new RuntimeException(event);
                 }
@@ -62,7 +62,7 @@ public class Find {
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
                 try {
-                    m.changeScene("city.fxml");
+                    m.changeScene("Resource/city.fxml");
                 } catch (IOException event) {
                     throw new RuntimeException(event);
                 }
@@ -74,15 +74,10 @@ public class Find {
     }
 
     public  void  Back() throws IOException {
-        GUI m = new GUI();
         EventHandler<ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {
-                    m.changeScene("menu.fxml");
-                } catch (IOException event) {
-                    throw new RuntimeException(event);
-                }
-
+                try {Common.Back();}
+                catch (IOException ex) {throw new RuntimeException(ex);}
             }
         };
         // when button is pressed
