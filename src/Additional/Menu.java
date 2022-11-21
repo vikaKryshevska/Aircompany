@@ -1,11 +1,11 @@
 package Additional;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
-
 public class Menu {
 
     @FXML
@@ -29,15 +29,11 @@ public class Menu {
     @FXML
     public  void  userLogOut() throws IOException{
         GUI m = new GUI();
+        StartCommands.Menu menu = new StartCommands.Menu();
         EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
-            public void handle(javafx.event.ActionEvent e) {
-                try {
-                     m.changeScene("Resource/GUI.fxml");
-                } catch (IOException event) {
-                    throw new RuntimeException(event);
+            public void handle(ActionEvent e) {
+                menu.execute(7);
                 }
-
-            }
         };
         // when button is pressed
         logout.setOnAction(event);

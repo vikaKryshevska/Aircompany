@@ -1,5 +1,7 @@
 package Additional;
 
+import Additional.SQL.DataManipulation;
+import Planes.Aircompany;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -7,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import static Planes.Aircompany.ChangeAvailabilityIndex;
 
@@ -29,6 +32,11 @@ public class Edit {
                 if (selectedIdx != -1) {
                     String itemToRemove = LstView.getSelectionModel().getSelectedItem();
                     ChangeAvailabilityIndex(selectedIdx);
+                    try {
+                        DataManipulation.Edit(Aircompany.getPlanes().get(selectedIdx), "availability");
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     try {
                         Common.Back();
                     } catch (IOException ex) {

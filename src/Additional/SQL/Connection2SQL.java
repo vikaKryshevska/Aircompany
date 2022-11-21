@@ -1,23 +1,12 @@
-package Additional;
+package Additional.SQL;
 import Planes.*;
 import java.sql.*;
 
 public class Connection2SQL {
 
     public static void GetDataFromSQL () throws SQLException {
-        String url = "jdbc:sqlserver://DESKTOP-KS63AMV:1433;DatabaseName=Aircompany;encrypt=true;trustServerCertificate=true";
-        String user = "1";
-        String password = "1111";
-        Connection connection = null;
-        try {
-            Class.forName(
-                    "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Good connection");
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
 
+        Connection connection = Connection();
         String sql = "SELECT * FROM plane INNER JOIN military ON plane.ID = military.ID";
         Statement statement = connection.createStatement();
         ResultSet res = statement.executeQuery(sql);
@@ -54,6 +43,22 @@ public class Connection2SQL {
         }
 
     }
+    public static Connection Connection() throws SQLException {
+        String url = "jdbc:sqlserver://DESKTOP-KS63AMV:1433;DatabaseName=Aircompany;encrypt=true;trustServerCertificate=true";
+        String user = "1";
+        String password = "1111";
+        Connection connection = null;
+        try {
+            Class.forName(
+                    "com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            connection = DriverManager.getConnection(url, user, password);
+            System.out.println("Good connection");
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return connection;
+    }
+
 
     public static void Set (Plane plane, ResultSet res) throws SQLException {
 

@@ -1,5 +1,6 @@
 package Additional;
 
+import Additional.SQL.DataManipulation;
 import Planes.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Add {
 
@@ -40,6 +42,11 @@ public class Add {
                 else{
                     ((MilitaryAircraft)plane).setAircrew(Integer.parseInt(aircrew.getText()));
                     Add(plane);
+                    try {
+                        DataManipulation.Insert(plane);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
 
             }
@@ -72,6 +79,11 @@ public class Add {
                     ((PassengerPlane)plane).setBusiness_class(Integer.parseInt(business.getText()));
 
                     Add(plane);
+                    try {
+                        DataManipulation.Insert(plane);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
 
             }
@@ -97,6 +109,11 @@ public class Add {
                     ((AirFreighter)plane).setCapacity(Integer.parseInt(capacity.getText()));
                     ((AirFreighter)plane).setDate(datef.getText());
                     Add(plane);
+                    try {
+                        DataManipulation.Insert(plane);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
 
             }
