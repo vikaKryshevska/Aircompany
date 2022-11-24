@@ -5,7 +5,10 @@ import Planes.MilitaryAircraft;
 import Planes.PassengerPlane;
 import Planes.Plane;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Random;
 
 public class DataManipulation {
