@@ -1,0 +1,3 @@
+2022-11-24 14:30:31,836 +0200 [main] INFO  (Main.java:20) - fffff
+2022-11-24 14:31:07,900 +0200 [main] INFO  (Main.java:20) - fffff
+2022-11-24 14:31:23,435 +0200 [main] INFO  (Main.java:20) - fffff
