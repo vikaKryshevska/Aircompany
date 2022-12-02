@@ -1,14 +1,18 @@
 package StartCommands;
+
 import Commands.*;
-import Commands.Show.*;
+import Commands.Show.Display;
+import Commands.Show.SearchPlane;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 
 public class Menu  {
 
-    private static Map<Integer, MenuItems> Items;
+    private final Map<Integer, MenuItems> Items;
     private final String[]  commands = new String[7];
+   // private static final Logger log = LogManager.getLogger(Menu.class);
 
     public Menu(){
         Items = new LinkedHashMap<>();
@@ -28,9 +32,13 @@ public class Menu  {
         commands[6] = " - Вийти";
     }
 
-    public static void execute (Integer command)
+    public void execute(Integer command)
     {
-        Items.getOrDefault(command, ()->System.out.println("Try again")).execute();
+
+        Items.getOrDefault(command, ()->
+        System.out.println("Try again")).execute();
+       // log.info("Choosing command ");
+
     }
 
     public void getAvailableCommands()

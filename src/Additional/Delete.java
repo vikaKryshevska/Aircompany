@@ -1,6 +1,7 @@
 package Additional;
 
-import Planes.*;
+import Additional.SQL.DataManipulation;
+import Planes.Aircompany;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import static Planes.Aircompany.removePlane;
 
@@ -24,52 +26,37 @@ public class Delete {
     private Button back = new Button();
 
     public  void  Back() throws IOException {
-        GUI m = new GUI();
-        EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
+        EventHandler<ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {
-                    m.changeScene("menu.fxml");
-                } catch (IOException event) {
-                    throw new RuntimeException(event);
-                }
-
+                try {Common.Back();}
+                catch (IOException ex) {throw new RuntimeException(ex);}
             }
         };
-        // when button is pressed
+
         back.setOnAction(event);
     }
 
 
     public void setLstView () {
-
-        Display m = new Display();
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
-            {LstView.getItems().clear();
-                for(Plane pln: Aircompany.getPlanes()) {
-                    if (pln instanceof PassengerPlane)
-                        LstView.getItems().add(String.valueOf(((PassengerPlane) pln)));
-                    else if (pln instanceof AirFreighter)
-                        LstView.getItems().add(String.valueOf(((AirFreighter) pln)));
-                    else
-                        LstView.getItems().add(String.valueOf(((MilitaryAircraft) pln)));
-                }
-            }
+            {Common.Show(LstView);}
         };
         Show.setOnAction(event);
     }
 
 
-
-
-
     public void Delete () {
-
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle (ActionEvent e) {
                 final int selectedIdx = LstView.getSelectionModel().getSelectedIndex();
                 if (selectedIdx != -1) {
                     String itemToRemove = LstView.getSelectionModel().getSelectedItem();
+                    try {
+                        DataManipulation.Delete(Aircompany.getPlanes().get(selectedIdx));
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     removePlane(selectedIdx);
                     LstView.getItems().remove(selectedIdx);
                 }

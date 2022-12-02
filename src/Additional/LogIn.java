@@ -11,6 +11,8 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 
+
+
 public class LogIn {
 
     @FXML
@@ -27,17 +29,12 @@ public class LogIn {
     @FXML
     public void userLogIn () throws IOException {
 
-        GUI m = new GUI();
-
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
                 if(username.getText().toString().equals("1")&& password.getText().toString().equals("1111")){
-                    try {
-                        m.changeScene("menu.fxml");
-                    } catch (IOException event) {
-                        throw new RuntimeException(event);
-                    }
+                    try {Common.Back();}
+                    catch (IOException ex) {throw new RuntimeException(ex);}
                 }
 
                 else if(username.getText().isEmpty()&& password.getText().isEmpty()){

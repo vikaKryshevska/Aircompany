@@ -12,6 +12,15 @@ public class AirFreighter extends Plane{
     public AirFreighter () {
     }
 
+
+    public AirFreighter (String name, int fuel_consumption, int flight_range, int max_speed, int available, String message, int capacity, String date, int regularity, String cities) {
+        super(name, fuel_consumption, flight_range, max_speed, available, message);
+        this.capacity = capacity;
+        this.date = date;
+        this.regularity = regularity;
+        this.cities = cities;
+    }
+
     public void AirFreighterCreate () {
         PlaneCreate();
         Scanner Input = new Scanner(System.in);
@@ -72,3 +81,5 @@ public class AirFreighter extends Plane{
 
 
 }
+
+

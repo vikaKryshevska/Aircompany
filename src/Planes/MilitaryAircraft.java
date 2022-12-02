@@ -9,6 +9,11 @@ public class MilitaryAircraft extends Plane {
     public MilitaryAircraft () {
     }
 
+    public MilitaryAircraft (String name, int fuel_consumption, int flight_range, int max_speed, int available, String message, int aircrew) {
+        super(name, fuel_consumption, flight_range, max_speed, available, message);
+        this.aircrew = aircrew;
+    }
+
     public void MilitaryAircraftCreate () {
         PlaneCreate();
         Scanner Input = new Scanner(System.in);
@@ -27,4 +32,10 @@ public class MilitaryAircraft extends Plane {
     public String toString () {
         return "\nЛітак воєнного призначення" + super.toString() + "\nкоманда - " + aircrew;
     }
+
+    public int getAircrew () {
+        return aircrew;
+    }
 }
+
+

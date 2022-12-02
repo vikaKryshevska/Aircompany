@@ -1,15 +1,19 @@
 package Commands;
 
-import Planes.Aircompany;
 import StartCommands.MenuItems;
 
 import java.util.Scanner;
 
-import static Planes.Aircompany.*;
+import static Planes.Aircompany.ChangeAvailabilityIndex;
+import static Planes.Aircompany.ChangeAvailabilityName;
 
 public class EditPlane implements MenuItems {
+    //private static final Logger log = LogManager.getLogger(EditPlane.class);
+
     @Override
     public  void execute(){
+
+      //  log.info("Editing plane");
 
         Scanner input = new Scanner(System.in);
         System.out.println("Введіть назву або номер літака, в якого бажаєте змінити доступність");
@@ -21,6 +25,5 @@ public class EditPlane implements MenuItems {
         else
             ChangeAvailabilityName(Item);
 
-        System.out.println("Змінено");
     }
 }

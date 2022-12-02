@@ -1,19 +1,27 @@
 package StartCommands;
 
-import Additional.Connection2SQL;
 import Additional.GUI;
+import org.apache.log4j.xml.DOMConfigurator;
 
-import java.io.IOException;
+import javax.mail.MessagingException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) throws SQLException, IOException {
-        Scanner input = new Scanner(System.in);
-        Menu menu = new Menu();
 
-        Connection2SQL.GetDataFromSQL();
-        GUI.main();
+public class Main {
+   // private static final Logger log = LogManager.getLogger(Main.class);
+
+    public static void main (String[] args) throws SQLException, MessagingException {
+
+        Scanner input = new Scanner(System.in);
+        DOMConfigurator.configure("src/resources/log4j2.xml");
+        Menu menu = new Menu();
+       // log.info("Start program");
+        Additional.SQL.Connection2SQL.GetDataFromSQL();
+
+
+
+          GUI.main();
         while (true){
             System.out.println("Бажаєте вивести усі команди - введіть 0, інакше номер команди яку хочете виконати");
             Integer command = input.nextInt();
@@ -27,3 +35,5 @@ public class Main {
     }
 
 }
+
+

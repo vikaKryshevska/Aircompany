@@ -25,18 +25,13 @@ public class Display {
 
 
     public  void  Back() throws IOException {
-        GUI m = new GUI();
-        EventHandler<javafx.event.ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
+        EventHandler<ActionEvent> event = new EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
-                try {
-                    m.changeScene("menu.fxml");
-                } catch (IOException event) {
-                    throw new RuntimeException(event);
-                }
-
+                try {Common.Back();}
+                catch (IOException ex) {throw new RuntimeException(ex);}
             }
         };
-        // when button is pressed
+
         back.setOnAction(event);
     }
 
@@ -44,17 +39,16 @@ public class Display {
 
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
-            {Show();}
+            {Common.Show(LstView);}
         };
         Show.setOnAction(event);
     }
 
     public void Sort () {
 
-        ShowSorted.Sort();
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
-            {Show();}
+            { ShowSorted.Sort(); Common.Show(LstView);}
         };
         Sort.setOnAction(event);
     }
@@ -80,19 +74,7 @@ public class Display {
         }
         LstView.getItems().add("\nМісткість пасажирських літаків "+pascapacity+" місць");
         LstView.getItems().add("\nВантажопідйомність вантажних літаків "+freightcapacity+" тон");
-}
 
-
-    public void Show ()
-    {
-        LstView.getItems().clear();
-        for(Plane pln: Aircompany.getPlanes()) {
-            if (pln instanceof PassengerPlane)
-                LstView.getItems().add(String.valueOf(((PassengerPlane) pln)));
-            else if (pln instanceof AirFreighter)
-                LstView.getItems().add(String.valueOf(((AirFreighter) pln)));
-            else
-                LstView.getItems().add(String.valueOf(((MilitaryAircraft) pln)));
-        }
     }
+
 }

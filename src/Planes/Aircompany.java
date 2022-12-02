@@ -1,9 +1,12 @@
 package Planes;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class Aircompany {
     private static List<Plane> planes;
+   // private static final Logger log = LogManager.getLogger(Aircompany.class);
+
 
     public static List<Plane> getPlanes() {
 
@@ -13,51 +16,64 @@ public final class Aircompany {
         return planes;
     }
 
-    public static void AddMessageIndex (int index){
-
-        if(planes.get(index)!=null){
-            System.out.println("Введіть повідомлення");
-            Scanner input = new Scanner(System.in);
-            planes.get(index).setMessage(input.nextLine());
-        }
-        else
-            System.out.println("Не можливо знайти літак");
+    public static void Clear(){
+        planes.clear();
     }
 
-    public static void AddMessageName (String name){
+    public static void AddMessageIndex (int index, String message){
 
+        //log.info("Adding message");
+
+        if(index >= 0 && index < planes.size()){
+            planes.get(index).setMessage(message);
+        }
+        else{
+           // log.warn("Message cannot be added");
+            System.out.println("Не можливо знайти літак");}
+    }
+
+    public static void AddMessageName (String name, String message){
+
+       // log.info("Adding message");
         for(Plane pln : planes)
             if(pln.getName().equals(name)){
-                 System.out.println("Введіть повідомлення");
-                 Scanner input = new Scanner(System.in);
-                 pln.setMessage(input.nextLine());
-                 return;
+                pln.setMessage(message);
+                return;
             }
+        //log.warn("Message cannot be added");
         System.out.println("Не можливо знайти літак");
     }
 
     public static void ChangeAvailabilityIndex (int index){
+        //log.info("Changing availability");
 
-        if(planes.get(index)!=null){
+        if(index >= 0 && index < planes.size()){
             int i =  !planes.get(index).isAvailable() ? 1:0;
             planes.get(index).setAvailable(i);
+            System.out.println("Змінено");
+
         }
-        else
-            System.out.println("Немає такого літака");
+        else{
+           // log.warn("Availability cannot be changed");
+            System.out.println("Не можливо знайти літак");}
     }
 
     public static void ChangeAvailabilityName (String name){
+        //log.info("Changing availability");
 
         for(Plane pln : planes)
             if(pln.getName().equals(name)){
                 int i =  !pln.isAvailable() ? 1:0;
                 pln.setAvailable(i);
+                System.out.println("Змінено");
                 return;
             }
+        //log.warn("Availability cannot be changed");
         System.out.println("Не можливо знайти літак");
     }
 
     public static void Sort (){
+        //log.info("Sorting");
 
         List<Plane> pln = planes;
         for (int i = 0; i < pln.size(); i++) {
@@ -72,12 +88,12 @@ public final class Aircompany {
         }
     }
     public static void removePlane (int index){
-        Plane item = planes.get(index);
-        if(item!=null){
+        if(index >= 0 && index < planes.size()) {
             planes.remove(index);
             System.out.println("Літак було видалено");        }
-        else
-            System.out.println("Літак не можливо видалити");
+        else {
+          //  log.warn("Plane cannot be deleted");
+            System.out.println("Літак не можливо видалити");}
     }
     public static void removePlaneByName (String name){
 
@@ -88,8 +104,12 @@ public final class Aircompany {
                 System.out.println("Літак було видалено");
                 return;
             }
-        System.out.println("Літак не можливо видалити");
+            else{
+             //   log.warn("Plane cannot be deleted");
+                System.out.println("Не можливо видалити літак");}
 
     }
 
 }
+
+

@@ -7,10 +7,15 @@ import Planes.Plane;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
 
 public class SearchByDate {
+   // private static final Logger log = LogManager.getLogger(SearchByDate.class);
+
     public static void ByDate(){
+        //log.info("Search by date");
 
         System.out.println("Пошук за датою...");
         Date maxDate = StringToDate("2023-01-01");
@@ -21,49 +26,47 @@ public class SearchByDate {
         String strDate = input.nextLine();
         Date date = StringToDate(strDate);
 
-        List<PassengerPlane> listPP= new ArrayList<>();
-        List<AirFreighter> listAF= new ArrayList<>();
-        for(Plane pln : Aircompany.getPlanes()) {
-            if (pln instanceof PassengerPlane)
-                listPP.add((PassengerPlane) pln);
-            else if (pln instanceof AirFreighter)
-                listAF.add((AirFreighter) pln);
-        }
 
         System.out.println("\nПасажирські літаки, що відправляються заданої дати");
-        for(PassengerPlane pln : listPP) {
-            FindPlane(pln, maxDate, date);
-        }
+        if(!FindPlane( maxDate, date, 1) ){
+               // log.warn("No objects were found");
+                System.out.println("Відсутні");}
+
 
         System.out.println("\nВантажні літаки, що відправляються заданої дати");
-        for(AirFreighter pln : listAF) {
-            FindPlane(pln, maxDate, date);
-        }
+        if(!FindPlane(maxDate, date, 2) )
+              {           // log.warn("No objects were found");
+                  System.out.println("Відсутні");}
+
 
     }
-    public static <T extends Plane> void FindPlane(T pln, Date maxDate, Date date) {
+    public static boolean FindPlane( Date maxDate, Date date, int type) {
 
         Date planeDate = null;
-        int i = 0;
-        if (pln instanceof PassengerPlane)
-            planeDate = StringToDate(((PassengerPlane)pln).getDate());
-        else
-            planeDate = StringToDate(((AirFreighter)pln).getDate());
-
-        while (!planeDate.after(maxDate) && !planeDate.after(date)) {
-            if (planeDate.equals(date)) {
-                System.out.println(pln);
-                i++;
-            }
-            if (pln instanceof PassengerPlane)
-                planeDate = DateAdd(planeDate, ((PassengerPlane)pln).getRegularity());
+        boolean i = false;
+        for(Plane pln:Aircompany.getPlanes()){
+            if(type==1 && pln instanceof PassengerPlane) {
+                planeDate = StringToDate(((PassengerPlane)pln).getDate());}
+            else  if(type==2 && pln instanceof AirFreighter)
+                planeDate = StringToDate(((AirFreighter)pln).getDate());
             else
-                planeDate = DateAdd(planeDate, ((AirFreighter)pln).getRegularity());
-
+                planeDate=maxDate;
+            while (planeDate.before(maxDate) && planeDate.before(DateAdd(date,1))) {
+                if (planeDate.equals(date)) {
+                    System.out.println(pln);
+                    i=true;
+                }
+                if (pln instanceof PassengerPlane)
+                    planeDate = DateAdd(planeDate, ((PassengerPlane)pln).getRegularity());
+                else  if (pln instanceof AirFreighter)
+                    planeDate = DateAdd(planeDate, ((AirFreighter)pln).getRegularity());
+                else
+                    continue;
+            }
         }
-        if(i==0)
-            System.out.println("Відсутні");
+        return i;
     }
+
 
     public static Date DateAdd(Date date, int days)
     {
@@ -73,7 +76,7 @@ public class SearchByDate {
         return cal.getTime();
     }
 
-    public static Date StringToDate(String s){
+    public static Date StringToDate (String s)  {
 
         Date result = null;
         try{
@@ -82,6 +85,10 @@ public class SearchByDate {
         }
 
         catch(ParseException e){
+          //  log.fatal("Entered incorrect date format");
+            //try {SendEmail.sendEmail(SearchByDate.class.getSimpleName()+"\nError: "+e);
+            ///} catch (MessagingException ex) {throw new RuntimeException(ex);}
+
             e.printStackTrace();
         }
         return result ;

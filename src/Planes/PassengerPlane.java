@@ -13,6 +13,16 @@ public class PassengerPlane extends Plane{
     public PassengerPlane () {
     }
 
+    public PassengerPlane (String name, int fuel_consumption, int flight_range, int max_speed, int available, String message, int first_class, int business_class, int economy_class, String date, int regularity, String cities) {
+        super(name, fuel_consumption, flight_range, max_speed, available, message);
+        this.first_class = first_class;
+        this.business_class = business_class;
+        this.economy_class = economy_class;
+        this.date = date;
+        this.regularity = regularity;
+        this.cities = cities;
+    }
+
     public void PassengerPlaneCreate () {
         PlaneCreate();
         Scanner Input = new Scanner(System.in);
@@ -68,6 +78,18 @@ public class PassengerPlane extends Plane{
         return cities;
     }
 
+    public int getFirst_class () {
+        return first_class;
+    }
+
+    public int getBusiness_class () {
+        return business_class;
+    }
+
+    public int getEconomy_class () {
+        return economy_class;
+    }
+
     public int Capacity (){
         return  first_class + business_class + economy_class;
     }
@@ -80,4 +102,8 @@ public class PassengerPlane extends Plane{
                 "\nрегулярність - " + regularity +
                 "\nміста - " + cities;
     }
+
+
 }
+
+

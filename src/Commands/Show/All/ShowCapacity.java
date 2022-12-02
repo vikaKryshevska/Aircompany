@@ -1,14 +1,19 @@
 package Commands.Show.All;
 
-import Planes.*;
+import Planes.AirFreighter;
+import Planes.Aircompany;
+import Planes.Plane;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShowCapacity {
+    //private static final Logger log = LogManager.getLogger(ShowCapacity.class);
+
     public static void Capacity() {
 
         int capacity = 0;
+       // log.info("Show capacity");
 
         List<Plane> listPP= new ArrayList<>();
         List<AirFreighter> listAF= new ArrayList<>();

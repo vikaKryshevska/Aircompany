@@ -10,10 +10,23 @@ public abstract class Plane {
     private boolean available;
     private String message;
 
+   // private static final Logger log = LogManager.getLogger(Plane.class);
+
     public Plane () {
     }
 
-    public void PlaneCreate () {//конструктор
+    public Plane (String name, int fuel_consumption, int flight_range, int max_speed, int available, String message) {
+       // log.info("Creating plane");
+
+        this.name = name;
+        this.fuel_consumption = fuel_consumption;
+        this.flight_range = flight_range;
+        this.max_speed = max_speed;
+        setAvailable(available);
+        this.message = message;
+    }
+
+    public PassengerPlane PlaneCreate () {//конструктор
         Scanner Input = new Scanner(System.in);
         System.out.print(" Назва - ");
         setName(Input.nextLine());
@@ -26,11 +39,16 @@ public abstract class Plane {
         System.out.print(" Доступність - ");
         setAvailable(Input.nextInt());
         setMessage("");
+        return null;
     }
 
     public abstract int Capacity();
     public void setName (String name) {
         this.name = name;
+    }
+
+    public int getMax_speed () {
+        return max_speed;
     }
 
     public int getFuel_consumption () {
@@ -72,7 +90,7 @@ public abstract class Plane {
 
     public String getMessage () {
         if (!message.equals(""))
-            return "\tЛітак має повідомлення : " + message;
+            return   message;
         else
             return "";
     }
@@ -81,7 +99,7 @@ public abstract class Plane {
     public String toString () {
 
         return "\nНазва - " + name + "\tспоживання пального - " + fuel_consumption +
-         "\nдальність польоту - " + flight_range + "\tмаксимальна швидкість - " + max_speed + "\nлітак " + Available() +getMessage();
+                "\nдальність польоту - " + flight_range + "\tмаксимальна швидкість - " + max_speed + "\nлітак " + Available() + "\tПовідомлення  "+getMessage();
     }
 
 
@@ -89,3 +107,5 @@ public abstract class Plane {
         return name;
     }
 }
+
+
